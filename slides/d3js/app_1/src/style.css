@@ -1,0 +1,68 @@
+/* UniGE Data Visualisation — D3.js module app.
+   Palette mirrors the course slide theme (themes/unige.css). */
+:root {
+  --unige-red: #cf0063;
+  --navy: #1f3a5f;
+  --gray: #4a4a4a;
+  --muted: #8a8f98;
+  --bg-soft: #f4f5f7;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fira Sans", "Segoe UI", system-ui, -apple-system, sans-serif;
+  color: var(--gray);
+  margin: 0;
+  padding: 32px 24px;
+  background: #ffffff;
+}
+
+main {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: var(--navy);
+  font-size: 26px;
+  margin: 0 0 4px 0;
+  border-bottom: 3px solid var(--unige-red);
+  padding-bottom: 8px;
+}
+
+.sub {
+  color: var(--muted);
+  margin: 0 0 24px 0;
+  font-size: 15px;
+}
+
+#chart {
+  background: var(--bg-soft);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+#chart svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.status {
+  color: var(--muted);
+  font-size: 14px;
+  font-family: "Fira Code", "Cascadia Code", Menlo, Consolas, monospace;
+}
+
+/* D3 axis styling — the axes are <g> elements D3 generates for us. */
+.domain,
+.tick line {
+  stroke: #b8bec8;
+}
+.tick text {
+  fill: var(--gray);
+  font-size: 12px;
+}

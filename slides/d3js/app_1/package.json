@@ -1,0 +1,21 @@
+{
+  "name": "unige-d3-spectrum-app",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "UniGE Data Visualisation — D3.js module. The peptide-spectrum viewer, grown across Sessions 2 and 3.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "d3": "^7.9.0"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3",
+    "typescript": "^5.4.5",
+    "vite": "^8.0.13"
+  }
+}
