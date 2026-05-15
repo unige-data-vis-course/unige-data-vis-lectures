@@ -408,7 +408,7 @@ A scale is exactly an **aesthetic mapping**: a data field → a visual channel.
 
 <div class="takeaway">
 
-The grammar of graphics is D3.js **the literal API**.
+x§The grammar of graphics is D3.js **the literal API**.
 
 </div>
 
@@ -757,8 +757,10 @@ Session 2 artefact — it is the module's spine, and Session 3 extends it.
 
 # The app: Vite + TypeScript + d3
 
+Clone from https://github.com/unige-data-vis-course/unige-data-vis-lectures
+
 ```bash
-cd app
+cd app_one
 npm install      # fetch d3, Vite, TypeScript — once
 npm run dev      # dev server + hot reload; edit a file, the page updates
 ```
@@ -774,7 +776,7 @@ npm run dev      # dev server + hot reload; edit a file, the page updates
 <div>
 
 ```text
-app/src/
+app_one/src/
   types.ts        the data model
   mgf.ts          parse .mgf text
   fragments.ts    b/y ions  (given)
@@ -861,7 +863,7 @@ a real app and not another notebook.
 import { theoreticalFragments } from "./fragments";
 ```
 
-`fragments.ts` is **in the scaffold, written for you**. The chemistry is the chain-snapping analogy you saw earlier; the code is given so the session fits in 45 minutes.
+`fragments.ts` is **in the scaffold, written for you**. The chemistry is the chain-snapping analogy you saw earlier;
 
 You **use** it. You do not derive it.
 
@@ -880,9 +882,11 @@ session feasible.
 
 ---
 
-# Your exercise
+# Exercise
 
-In `app/src/main.ts`, find the knob:
+**Run the app** — `npm install` then `npm run dev` in `app_one/`.
+
+In `app_one/src/main.ts`, find the knob:
 
 ```ts
 const TOLERANCE_DA = 0.02;
@@ -899,20 +903,6 @@ The exercise is deliberately tiny and concrete — one number, immediate visual
 feedback. The two questions turn knob-twiddling into a real lesson about
 instrument accuracy vs. false discovery. The stretch goal is for the fast
 finishers; do not make it mandatory.
--->
-
----
-
-# Before next session
-
-- **Run the app** — `npm install` then `npm run dev` in `app/`.
-- **Do the tolerance exercise** — and come with an answer to "how tight is too tight?"
-- **Session 3:** from *one* spectrum to *many* — a network of spectra linked by similarity, and the colour scale put to work.
-
-<!--
-Short, concrete homework. The "how tight is too tight" question gives Session 3
-a warm opening that is about their findings, not a recap. Flag that Session 3
-reuses today's component so the app keeps growing.
 -->
 
 ---

@@ -1,0 +1,32 @@
+# Two-container setup for the D3.js module app.
+#
+#   data-service  serves the spectra dataset on port 8081
+#   app           builds the Vite + TS app and serves it via nginx on port 8080
+#
+# Quickstart (from this folder):
+#
+#     docker compose up --build      # build everything and run it
+#     # then open http://localhost:8080
+#
+#     docker compose down            # stop and remove the containers
+#
+# The app's browser code fetches from http://localhost:8081/spectra. That URL
+# works because compose maps the data-service container's port 8081 to the
+# host's port 8081 — same address the browser uses in `npm run dev`.
+
+services:
+  data-service:
+    build: ./data-service
+    container_name: d3js-data-service
+    ports:
+      - "8081:8081"
+    restart: unless-stopped
+
+  app:
+    build: ./app_network
+    container_name: d3js-app
+    ports:
+      - "8080:80"
+    depends_on:
+      - data-service
+    restart: unless-stopped

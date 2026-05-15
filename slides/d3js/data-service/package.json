@@ -1,0 +1,10 @@
+{
+  "name": "unige-d3-data-service",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Tiny zero-dependency service that serves the spectra dataset for the D3.js module app.",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
