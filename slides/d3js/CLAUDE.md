@@ -59,11 +59,18 @@ node server.js     # serves GET /spectra and GET /health on port 8081
 
 ```bash
 # From slides/d3js/
-docker compose up --build   # builds both containers, opens on :8080
+
+# Production — static build served by nginx
+docker compose up --build
 docker compose down
+
+# Development — Vite HMR + node --watch (no restart needed on code changes)
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 ```
 
-The data-service runs on host port `8081`; nginx serves the built app on port `8080`.
+Both modes expose the app on `http://localhost:8080`. In dev mode, edits to `app_network/src/` reload the browser instantly via Vite HMR; changes to `data-service/server.js` restart the service automatically via `node --watch`.
+
+The data-service runs on host port `8081`; the app is served on port `8080` (nginx in production, Vite dev server in development).
 
 ## Architecture
 

@@ -1,0 +1,33 @@
+# Development override — adds file-watching to both services without rebuilding.
+#
+# Run with:
+#
+#   docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+#
+# What changes compared to the production compose:
+#
+#   app           Runs Vite's dev server (HMR) instead of a built nginx image.
+#                 Edit any file in app_network/src/ and the browser updates
+#                 instantly. Still accessible on http://localhost:8080.
+#
+#   data-service  Uses `node --watch` so the server restarts automatically
+#                 when server.js changes.
+
+services:
+  data-service:
+    volumes:
+      - ./data-service/server.js:/service/server.js
+      - ./data-service/spectra.mgf:/service/spectra.mgf
+    command: node --watch server.js
+
+  app:
+    build:
+      context: ./app_network
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./app_network:/app
+      # Keep the container's installed node_modules; ignore what's on the host.
+      - /app/node_modules
+    ports:
+      - "8080:5173"
+    command: npm run dev -- --host

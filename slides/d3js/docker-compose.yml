@@ -3,12 +3,16 @@
 #   data-service  serves the spectra dataset on port 8081
 #   app           builds the Vite + TS app and serves it via nginx on port 8080
 #
-# Quickstart (from this folder):
+# Production (static build, nginx):
 #
-#     docker compose up --build      # build everything and run it
-#     # then open http://localhost:8080
+#     docker compose up --build      # build and run
+#     # open http://localhost:8080
+#     docker compose down
 #
-#     docker compose down            # stop and remove the containers
+# Development (Vite HMR, file-watching — no restart needed on code changes):
+#
+#     docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+#     # open http://localhost:8080 — edits in app_network/src/ reload live
 #
 # The app's browser code fetches from http://localhost:8081/spectra. That URL
 # works because compose maps the data-service container's port 8081 to the
