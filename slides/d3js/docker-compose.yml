@@ -34,3 +34,8 @@ services:
     depends_on:
       - data-service
     restart: unless-stopped
+    command: >
+      sh -c 'echo "--------------------------------------------" &&
+             echo "  App running at http://localhost:8080" &&
+             echo "--------------------------------------------" &&
+             nginx -g "daemon off;"'
